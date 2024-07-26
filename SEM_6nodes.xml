@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Model type="NR" domain="cmplx" name="SEM_6Nodes">
+    <Vars conj="true">
+        <Var name="v1" val="V1_sp"/>
+        <Var name="v2" val="V2_sp"/>
+        <Var name="v3" val="V3_sp"/>
+        <Var name="v4" val="V1_sp"/>
+        <Var name="v5" val="V1_sp"/>
+        <Var name="v6" val="V1_sp"/>
+        <Var name="S1"/>
+        <Var name="S2" val="P2_inj"/>
+        <Var name="S3" val="P3_inj"/>
+        <Var name="S4" val="S4_inj"/>
+        <Var name="S5" val="S5_inj"/>
+        <Var name="S6" val="S6_inj"/>
+        <Var name="S12"/>
+        <Var name="S21"/>
+        <Var name="S12_loss"/>
+        <Var name="S14"/>
+        <Var name="S41"/>
+        <Var name="S14_loss"/>
+        <Var name="S15"/>
+        <Var name="S51"/>
+        <Var name="S15_loss"/>
+        <Var name="S23"/>
+        <Var name="S32"/>
+        <Var name="S23_loss"/>
+        <Var name="S24"/>
+        <Var name="S42"/>
+        <Var name="S24_loss"/>
+        <Var name="S25"/>
+        <Var name="S52"/>
+        <Var name="S25_loss"/>
+        <Var name="S26"/>
+        <Var name="S62"/>
+        <Var name="S26_loss"/>
+        <Var name="S35"/>
+        <Var name="S53"/>
+        <Var name="S35_loss"/>
+        <Var name="S36"/>
+        <Var name="S63"/>
+        <Var name="S36_loss"/>
+        <Var name="S45"/>
+        <Var name="S54"/>
+        <Var name="S45_loss"/>
+        <Var name="S56"/>
+        <Var name="S65"/>
+        <Var name="S56_loss"/>
+    </Vars>
+    <Params>
+        <Param name="V1_sp" val="1.05"/>
+        <Param name="V2_sp" val="1.05"/>
+        <Param name="V3_sp" val="1.07"/>
+        <Param name="P2_inj" val="0.5"/> 
+        <Param name="P3_inj" val="0.6"/>
+
+        <Param name="z12" val="0.1+0.2i"/>
+        <Param name="z14" val="0.05+0.2i"/>
+        <Param name="z15" val="0.08+0.3i"/>
+        <Param name="z23" val="0.05+0.25i"/>
+        <Param name="z24" val="0.05+0.1i"/>
+        <Param name="z25" val="0.1+0.3i"/>
+        <Param name="z26" val="0.07+0.2i"/>
+        <Param name="z35" val="0.12+0.26i"/>
+        <Param name="z36" val="0.02+0.1i"/>
+        <Param name="z45" val="0.2+0.4i"/>
+        <Param name="z56" val="0.1+0.3i"/>
+
+        <Param name="ysh12" val="0+0.04i"/>
+        <Param name="ysh14" val="0+0.04i"/>
+        <Param name="ysh15" val="0+0.06i"/>
+        <Param name="ysh23" val="0+0.06i"/>
+        <Param name="ysh24" val="0+0.02i"/>
+        <Param name="ysh25" val="0+0.04i"/>
+        <Param name="ysh26" val="0+0.05i"/>
+        <Param name="ysh35" val="0+0.05i"/>
+        <Param name="ysh36" val="0+0.02i"/>
+        <Param name="ysh45" val="0+0.08i"/>
+        <Param name="ysh56" val="0+0.06i"/>
+
+        <!-- NODE 1  -->
+        <Param name="y12" val="1/z12"/>
+        <Param name="y14" val="1/z14"/>
+        <Param name="y15" val="1/z15"/>
+
+        <!-- NODE 2  -->
+        <Param name="y21" val="1/z12"/>
+        <Param name="y23" val="1/z23"/>
+        <Param name="y24" val="1/z24"/>
+        <Param name="y25" val="1/z25"/>
+        <Param name="y26" val="1/z26"/>
+
+        <!-- NODE 3  -->
+        <Param name="y32" val="1/z23"/>
+        <Param name="y35" val="1/z35"/>
+        <Param name="y36" val="1/z36"/>
+
+        <!-- NODE 4  -->
+        <Param name="y41" val="1/z14"/>
+        <Param name="y42" val="1/z24"/>
+        <Param name="y45" val="1/z45"/>
+        
+        <!-- NODE 5  -->
+        <Param name="y51" val="1/z15"/>
+        <Param name="y52" val="1/z25"/>
+        <Param name="y53" val="1/z35"/>
+        <Param name="y54" val="1/z45"/>
+        <Param name="y56" val="1/z56"/>
+
+        <!--  NODE 6  -->
+        <Param name="y62" val="1/z26"/>
+        <Param name="y63" val="1/z36"/>
+        <Param name="y65" val="1/z56"/>
+
+        <Param name="y11" val="y21+y41+y51+1/2*ysh12+1/2*ysh14+1/2*ysh15"/>
+        <Param name="y22" val="y21+y23+y24+y25+y26+1/2*ysh12+1/2*ysh23+1/2*ysh24+1/2*ysh25+1/2*ysh26"/>
+        <Param name="y33" val="y23+y35+y36+1/2*ysh23+1/2*ysh35+1/2*ysh36"/>
+        <Param name="y44" val="y41+y24+y45+1/2*ysh14+1/2*ysh24+1/2*ysh45"/>
+        <Param name="y55" val="y51+y25+y35+y45+y56+1/2*ysh15+1/2*ysh25+1/2*ysh35+1/2*ysh45+1/2*ysh56"/>
+        <Param name="y66" val="y26+y36+y56+1/2*ysh26+1/2*ysh36+1/2*ysh56"/>
+
+        <Param name="S4_inj" val="0.7+0.7i"/>
+        <Param name="S5_inj" val="0.7+0.7i"/>
+        <Param name="S6_inj" val="0.7+0.7i"/>
+    </Params>
+    <NLEqs>
+        <!-- PQ nodes-->
+        <!--  node 4  -->
+        <Eq fx="v4*conj(-y41*v1-y24*v2+y44*v4-y45*v5) + S4_inj=0"/>
+        <Eq fx="conj(v4)*(-y41*v1-y24*v2+y44*v4-y45*v5) + conj(S4_inj)=0"/>
+        <!--  node 5 (ZI) -->
+        <Eq fx="v5*conj(-y51*v1-y25*v2-y35*v3-y45*v4+y55*v5-y56*v6) + S5_inj=0"/>
+        <Eq fx="conj(v5)*(-y51*v1-y25*v2-y35*v3-y45*v4+y55*v5-y56*v6) + conj(S5_inj)=0"/>
+        <!--  node 6  -->
+        <Eq fx="v6*conj(-y26*v2-y36*v3-y56*v5+y66*v6) + S6_inj=0"/>
+        <Eq fx="conj(v6)*(-y26*v2-y36*v3-y56*v5+y66*v6) + conj(S6_inj)=0"/>
+
+        <!-- PV nodes-->
+        <!--  node 2  -->
+        <Eq fx="1/2*(v2*conj(-y21*v1+y22*v2-y23*v3-y24*v4-y25*v5-y26*v6)+conj(v2)*(-y21*v1+y22*v2-y23*v3-y24*v4-y25*v5-y26*v6))-P2_inj=0"/>
+        <Eq fx="v2*conj(v2)-V2_sp^2=0"/>
+        <!--  node 3  -->
+        <Eq fx="1/2*(v3*conj(-y23*v2+y33*v3-y35*v5-y36*v6)+conj(v3)*(-y23*v2+y33*v3-y35*v5-y36*v6))-P3_inj=0"/>
+        <Eq fx="v3*conj(v3)-V3_sp^2=0"/>
+
+        <!--  SLACK NODE -->
+        <Eq fx="1/2*(v1+conj(v1))-V1_sp=0"/>
+        <Eq fx="1i*1/2*(conj(v1)-v1)=0"/> 
+
+        <!--  Postprocessing power calculation  -->
+
+        <!--  BUS power  -->
+        <!--  node 1  -->
+        <Eq fx="S1 - v1*conj(y11*v1-y21*v2-y41*v4-y51*v5)=0"/>
+        <Eq fx="conj(S1) - conj(v1)*(y11*v1-y21*v2-y41*v4-y51*v5)=0"/>
+        <!--  node 2  -->
+        <Eq fx="S2 - v2*conj(-y21*v1+y22*v2-y23*v3-y24*v4-y25*v5-y26*v6)=0"/>
+        <Eq fx="conj(S2) - conj(v2)*(-y21*v1+y22*v2-y23*v3-y24*v4-y25*v5-y26*v6)=0"/>
+        <!--  node 3  -->
+        <Eq fx="S3 - v3*conj(-y23*v2+y33*v3-y35*v5-y36*v6)=0"/>
+        <Eq fx="conj(S3) - conj(v3)*(-y23*v2+y33*v3-y35*v5-y36*v6)=0"/>
+        <!--  node 4  -->
+        <Eq fx="S4 + v4*conj(-y41*v1-y24*v2+y44*v4-y45*v5)=0"/>
+        <Eq fx="conj(S4) + conj(v4)*(-y41*v1-y24*v2+y44*v4-y45*v5)=0"/>
+        <!--  node 5  -->
+        <Eq fx="S5 + v5*conj(-y51*v1-y25*v2-y35*v3-y45*v4+y55*v5-y56*v6)=0"/>
+        <Eq fx="conj(S5) + conj(v5)*(-y51*v1-y25*v2-y35*v3-y45*v4+y55*v5-y56*v6)=0"/>
+        <!--  node 6  -->
+        <Eq fx="S6 + v6*conj(-y26*v2-y36*v3-y56*v5+y66*v6)=0"/>
+        <Eq fx="conj(S6) + conj(v6)*(-y26*v2-y36*v3-y56*v5+y66*v6)=0"/>
+
+        <!--  BRANCH power  -->
+        <!--  line 1-2  -->
+        <Eq fx="S12 - v1*conj(1/2*ysh12*v1+y21*(v1-v2))=0"/>
+        <Eq fx="conj(S12) - conj(v1)*(1/2*ysh12*v1+y21*(v1-v2))=0"/>
+        <Eq fx="S21 - v2*conj(1/2*ysh12*v2+y21*(v2-v1))=0"/>
+        <Eq fx="conj(S21) - conj(v2)*(1/2*ysh12*v2+y21*(v2-v1))=0"/>
+        <!--  line 1-4  -->
+        <Eq fx="S14 - v1*conj(1/2*ysh14*v1+y41*(v1-v4))=0"/>
+        <Eq fx="conj(S14) - conj(v1)*(1/2*ysh14*v1+y41*(v1-v4))=0"/>
+        <Eq fx="S41 - v4*conj(1/2*ysh14*v4+y41*(v4-v1))=0"/>
+        <Eq fx="conj(S41) - conj(v4)*(1/2*ysh14*v4+y41*(v4-v1))=0"/>
+        <!--  line 1-5  -->
+        <Eq fx="S15 - v1*conj(1/2*ysh15*v1+y51*(v1-v5))=0"/>
+        <Eq fx="conj(S15) - conj(v1)*(1/2*ysh15*v1+y51*(v1-v5))=0"/>
+        <Eq fx="S51 - v5*conj(1/2*ysh15*v5+y51*(v5-v1))=0"/>
+        <Eq fx="conj(S51) - conj(v5)*(1/2*ysh15*v5+y51*(v5-v1))=0"/>
+        <!--  line 2-3  -->
+        <Eq fx="S23 - v2*conj(1/2*ysh23*v2+y23*(v2-v3))=0"/>
+        <Eq fx="conj(S23) - conj(v2)*(1/2*ysh23*v2+y23*(v2-v3))=0"/>
+        <Eq fx="S32 - v3*conj(1/2*ysh23*v3+y23*(v3-v2))=0"/>
+        <Eq fx="conj(S32) - conj(v3)*(1/2*ysh23*v3+y23*(v3-v2))=0"/>
+        <!--  line 2-4  -->
+        <Eq fx="S24 - v2*conj(1/2*ysh24*v2+y24*(v2-v4))=0"/>
+        <Eq fx="conj(S24) - conj(v2)*(1/2*ysh24*v2+y24*(v2-v4))=0"/>
+        <Eq fx="S42 - v4*conj(1/2*ysh24*v4+y24*(v4-v2))=0"/>
+        <Eq fx="conj(S42) - conj(v4)*(1/2*ysh24*v4+y24*(v4-v2))=0"/>        
+        <!--  line 2-5  -->
+        <Eq fx="S25 - v2*conj(1/2*ysh25*v2+y25*(v2-v5))=0"/>
+        <Eq fx="conj(S25) - conj(v2)*(1/2*ysh25*v2+y25*(v2-v5))=0"/>
+        <Eq fx="S52 - v5*conj(1/2*ysh25*v5+y25*(v5-v2))=0"/>
+        <Eq fx="conj(S52) - conj(v5)*(1/2*ysh25*v5+y25*(v5-v2))=0"/>        
+        <!--  line 2-6  -->
+        <Eq fx="S26 - v2*conj(1/2*ysh26*v2+y26*(v2-v6))=0"/>
+        <Eq fx="conj(S26) - conj(v2)*(1/2*ysh26*v2+y26*(v2-v6))=0"/>
+        <Eq fx="S62 - v6*conj(1/2*ysh26*v6+y26*(v6-v2))=0"/>
+        <Eq fx="conj(S62) - conj(v6)*(1/2*ysh26*v6+y26*(v6-v2))=0"/>        
+        <!--  line 3-5  -->
+        <Eq fx="S35 - v3*conj(1/2*ysh35*v3+y35*(v3-v5))=0"/>
+        <Eq fx="conj(S35) - conj(v3)*(1/2*ysh35*v3+y35*(v3-v5))=0"/>
+        <Eq fx="S53 - v5*conj(1/2*ysh35*v5+y35*(v5-v3))=0"/>
+        <Eq fx="conj(S53) - conj(v5)*(1/2*ysh35*v5+y35*(v5-v3))=0"/>        
+        <!--  line 3-6  -->
+        <Eq fx="S36 - v3*conj(1/2*ysh36*v3+y36*(v3-v6))=0"/>
+        <Eq fx="conj(S36) - conj(v3)*(1/2*ysh36*v3+y36*(v3-v6))=0"/>
+        <Eq fx="S63 - v6*conj(1/2*ysh36*v6+y36*(v6-v3))=0"/>
+        <Eq fx="conj(S63) - conj(v6)*(1/2*ysh36*v6+y36*(v6-v3))=0"/>        
+        <!--  line 4-5  -->
+        <Eq fx="S45 - v4*conj(1/2*ysh45*v4+y45*(v4-v5))=0"/>
+        <Eq fx="conj(S45) - conj(v4)*(1/2*ysh45*v4+y45*(v4-v5))=0"/>
+        <Eq fx="S54 - v5*conj(1/2*ysh45*v5+y45*(v5-v4))=0"/>
+        <Eq fx="conj(S54) - conj(v5)*(1/2*ysh45*v5+y45*(v5-v4))=0"/>
+        <!--  line 5-6  -->
+        <Eq fx="S56 - v5*conj(1/2*ysh56*v5+y56*(v5-v6))=0"/>
+        <Eq fx="conj(S56) - conj(v5)*(1/2*ysh56*v5+y56*(v5-v6))=0"/>
+        <Eq fx="S65 - v6*conj(1/2*ysh56*v6+y56*(v6-v5))=0"/>
+        <Eq fx="conj(S65) - conj(v6)*(1/2*ysh56*v6+y56*(v6-v5))=0"/>
+
+        <!--  BRANCH power loss  -->
+        <!--  line 1-2  -->
+        <Eq fx="S12_loss - (S12+S21)=0"/>
+        <Eq fx="conj(S12_loss) - conj(S12+S21)=0"/>
+        <!--  line 1-4  -->
+        <Eq fx="S14_loss - (S14+S41)=0"/>
+        <Eq fx="conj(S14_loss) - conj(S14+S41)=0"/>
+        <!--  line 1-5  -->
+        <Eq fx="S15_loss - (S15+S51)=0"/>
+        <Eq fx="conj(S15_loss) - conj(S15+S51)=0"/>
+        <!--  line 2-3  -->
+        <Eq fx="S23_loss - (S23+S32)=0"/>
+        <Eq fx="conj(S23_loss) - conj(S23+S32)=0"/>
+        <!--  line 2-4  -->
+        <Eq fx="S24_loss - (S24+S42)=0"/>
+        <Eq fx="conj(S24_loss) - conj(S24+S42)=0"/>
+        <!--  line 2-5  -->
+        <Eq fx="S25_loss - (S25+S52)=0"/>
+        <Eq fx="conj(S25_loss) - conj(S25+S52)=0"/>
+        <!--  line 2-6  -->
+        <Eq fx="S26_loss - (S26+S62)=0"/>
+        <Eq fx="conj(S26_loss) - conj(S26+S62)=0"/>
+        <!--  line 3-5  -->
+        <Eq fx="S35_loss - (S35+S53)=0"/>
+        <Eq fx="conj(S35_loss) - conj(S35+S53)=0"/>
+        <!--  line 3-6  -->
+        <Eq fx="S36_loss - (S36+S63)=0"/>
+        <Eq fx="conj(S36_loss) - conj(S36+S63)=0"/>
+        <!--  line 4-5  -->
+        <Eq fx="S45_loss - (S45+S54)=0"/>
+        <Eq fx="conj(S45_loss) - conj(S45+S54)=0"/>
+        <!--  line 5-6  -->
+        <Eq fx="S56_loss - (S56+S65)=0"/>
+        <Eq fx="conj(S56_loss) - conj(S56+S65)=0"/>
+    </NLEqs>
+</Model>
